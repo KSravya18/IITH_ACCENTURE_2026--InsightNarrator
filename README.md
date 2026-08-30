@@ -133,4 +133,5 @@ retraining any model.
 
 ## Team
 
-IITH_ACCENTURE_2026 — [team members here]
+IITH_ACCENTURE_2026 — G Sai Charan
+                      K Sravya
