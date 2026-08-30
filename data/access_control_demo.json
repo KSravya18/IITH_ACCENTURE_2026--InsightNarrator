@@ -1,0 +1,93 @@
+{
+  "executive_view": {
+    "region": "West",
+    "product": "ProductA",
+    "week": "2026-04-26",
+    "pct_change": -31.5,
+    "confidence_level": "HIGH",
+    "summary": "Revenue impact explained by: Price change, Units sold change, Marketing spend change, Customer complaints (fulfillment/logistics)",
+    "access": "GRANTED (executive view - aggregated, no raw customer data)"
+  },
+  "regional_manager_view_west": {
+    "region": "West",
+    "product": "ProductA",
+    "week": "2026-04-26",
+    "pct_change": -31.5,
+    "confidence_level": "HIGH",
+    "drivers": [
+      "Price change",
+      "Units sold change",
+      "Marketing spend change",
+      "Customer complaints (fulfillment/logistics)"
+    ],
+    "complaint_themes": [
+      "disappointed",
+      "late",
+      "understaffed",
+      "stuck",
+      "delayed",
+      "refund",
+      "delay"
+    ],
+    "complaint_count": 5,
+    "access": "GRANTED (regional view - themes only, no raw text/customer ID)"
+  },
+  "regional_manager_view_denied": {
+    "access": "DENIED",
+    "reason": "Regional managers cannot view West data (you are scoped to East only)."
+  },
+  "support_lead_view": {
+    "region": "West",
+    "product": "ProductA",
+    "week": "2026-04-26",
+    "pct_change": -31.5,
+    "confidence_level": "HIGH",
+    "drivers": [
+      "Price change",
+      "Units sold change",
+      "Marketing spend change",
+      "Customer complaints (fulfillment/logistics)"
+    ],
+    "raw_complaints": [
+      {
+        "text": "My ProductA order has been stuck in transit for over a week.",
+        "keywords": [
+          "stuck"
+        ],
+        "customer_id": "CUST-4471"
+      },
+      {
+        "text": "Delivery delayed again, third time this month in the west region.",
+        "keywords": [
+          "delay",
+          "delayed"
+        ],
+        "customer_id": "CUST-2290"
+      },
+      {
+        "text": "Extremely disappointed with shipping delays, considering switching brands.",
+        "keywords": [
+          "delay",
+          "disappointed"
+        ],
+        "customer_id": "CUST-1052"
+      },
+      {
+        "text": "Warehouse in the west region seems understaffed, orders piling up.",
+        "keywords": [
+          "understaffed"
+        ],
+        "customer_id": "CUST-9944"
+      },
+      {
+        "text": "Refund requested, late delivery missed the event I needed it for.",
+        "keywords": [
+          "late",
+          "refund"
+        ],
+        "customer_id": "CUST-3327"
+      }
+    ],
+    "access": "GRANTED (support lead view - full complaint detail)"
+  }
+}

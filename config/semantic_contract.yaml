@@ -1,0 +1,101 @@
+# ============================================================
+# SEMANTIC CONTRACT
+# ============================================================
+# Plain English: this file is the single "rulebook" that says
+# exactly what each KPI means, how to calculate it, where the
+# data comes from, when to worry about it, who owns it, and
+# who is allowed to see it. Every part of the system (the code
+# AND the AI) refers back to this file instead of guessing or
+# redefining things inconsistently.
+# ============================================================
+
+kpis:
+
+  revenue:
+    definition: "Total money earned from product sales, before returns or discounts."
+    formula: "price * units_sold, summed across all sales in the period"
+    source: "data/sales_weekly.csv"
+    grain: "region, product, week"
+    refresh_cadence: "weekly"
+    materiality_threshold:
+      statistical: "z-score > 1.8 vs trailing 6-week average"
+      business_impact: "at least 8% change vs expected value"
+    owner: "Regional Sales Lead"
+    access_restriction: "Regional managers see only their own region's figures. Executives see all regions aggregated."
+
+  units_sold:
+    definition: "Number of product units sold, regardless of price."
+    formula: "count of units transacted"
+    source: "data/sales_weekly.csv"
+    grain: "region, product, week"
+    refresh_cadence: "weekly"
+    materiality_threshold:
+      statistical: "z-score > 1.8 vs trailing 6-week average"
+      business_impact: "at least 8% change vs expected value"
+    owner: "Regional Sales Lead"
+    access_restriction: "Regional managers see only their own region's figures. Executives see all regions aggregated."
+
+  average_selling_price:
+    definition: "The average price customers actually paid per unit."
+    formula: "revenue / units_sold"
+    source: "data/sales_weekly.csv"
+    grain: "region, product, week"
+    refresh_cadence: "weekly"
+    materiality_threshold:
+      statistical: "z-score > 1.8 vs trailing 6-week average"
+      business_impact: "at least 5% change vs expected value"
+    owner: "Pricing Team"
+    access_restriction: "Visible to all internal personas; not customer-facing."
+
+  marketing_spend:
+    definition: "Total advertising budget spent, across all channels, for a region."
+    formula: "sum of spend across Search, Social, Display channels"
+    source: "data/marketing_weekly.csv"
+    grain: "region, week"
+    refresh_cadence: "weekly"
+    materiality_threshold:
+      statistical: "not anomaly-scored directly; used as a supporting signal for revenue anomalies"
+      business_impact: "at least 15% change vs trailing 6-week average counts as a meaningful shift"
+    owner: "Marketing Lead"
+    access_restriction: "Regional managers see only their own region's spend. Finance sees all regions."
+
+  complaint_volume:
+    definition: "Count of customer complaints/support tickets mentioning fulfillment or quality issues."
+    formula: "count of complaint_log entries matching negative-sentiment keywords, per region/product/window"
+    source: "data/complaints_log.csv"
+    grain: "region, product, irregular timestamp (not weekly-aligned)"
+    refresh_cadence: "near real-time (ticket-by-ticket)"
+    materiality_threshold:
+      statistical: "not anomaly-scored directly; used as a supporting signal for revenue anomalies"
+      business_impact: "any cluster of 3+ related complaints within a 10-day window counts as meaningful"
+    owner: "Customer Support Lead"
+    access_restriction: >
+      Raw complaint TEXT and customer_id are considered sensitive.
+      Regional managers may see complaint COUNTS and THEMES for their
+      own region only. Only the Support Lead persona may see raw
+      complaint text and customer identifiers.
+
+# ============================================================
+# LINEAGE (plain English: "where did this number come from")
+# ============================================================
+lineage_policy: >
+  Every insight shown to a user must be able to answer: which raw
+  file(s) it came from, what date range was used, what method
+  produced it (rule-based math, statistical test, or LLM narration),
+  and how fresh the underlying data was at the time of analysis.
+
+# ============================================================
+# PERSONAS (who sees what)
+# ============================================================
+personas:
+  executive:
+    sees: "Aggregated KPIs across all regions, high-confidence findings only, financial-impact framing."
+    does_not_see: "Raw complaint text, individual customer IDs, low-confidence/unresolved anomalies unless explicitly requested."
+
+  regional_manager:
+    sees: "Their own region's KPIs, drivers, and complaint counts/themes."
+    does_not_see: "Other regions' data. Raw complaint text or customer IDs (sees anonymized themes only)."
+
+  support_lead:
+    sees: "Raw complaint text, customer IDs, complaint-driven anomalies across all regions."
+    does_not_see: "No restriction on complaint data; still cannot see unrelated financial pricing strategy notes."

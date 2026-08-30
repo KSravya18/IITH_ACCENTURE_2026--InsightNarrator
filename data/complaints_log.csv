@@ -1,0 +1,10 @@
+date,region,product,customer_id,complaint_text
+2026-04-27,West,ProductA,CUST-4471,My ProductA order has been stuck in transit for over a week.
+2026-04-28,West,ProductA,CUST-2290,"Delivery delayed again, third time this month in the west region."
+2026-04-28,West,ProductA,CUST-8813,Package marked shipped but tracking hasn't moved.
+2026-04-29,West,ProductA,CUST-1052,"Extremely disappointed with shipping delays, considering switching brands."
+2026-04-30,West,ProductA,CUST-9944,"Warehouse in the west region seems understaffed, orders piling up."
+2026-05-01,West,ProductA,CUST-3327,"Refund requested, late delivery missed the event I needed it for."
+2026-02-02,North,ProductB,CUST-5510,"Great product, fast delivery as always."
+2026-03-10,South,ProductA,CUST-7743,"App crashed at checkout, had to retry twice."
+2026-04-06,East,ProductC,CUST-6621,Packaging could be better but arrived on time.

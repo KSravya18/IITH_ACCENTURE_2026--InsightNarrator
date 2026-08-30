@@ -1,0 +1,44 @@
+{
+  "stages": [
+    {
+      "stage": "Anomaly Detection (stats)",
+      "latency_ms": 224.7
+    },
+    {
+      "stage": "Driver Attribution (stats/math)",
+      "latency_ms": 6.1
+    },
+    {
+      "stage": "Confidence Scoring (rules)",
+      "latency_ms": 0.5
+    },
+    {
+      "stage": "Access Control (rules)",
+      "latency_ms": 18.3
+    },
+    {
+      "stage": "Narrative Generation (LLM)",
+      "latency_ms": 0.1
+    }
+  ],
+  "llm_calls": [
+    {
+      "persona": "executive",
+      "estimated_input_tokens": 162,
+      "estimated_output_tokens": 32,
+      "estimated_cost_usd": 0.000966
+    },
+    {
+      "persona": "regional_manager",
+      "estimated_input_tokens": 188,
+      "estimated_output_tokens": 80,
+      "estimated_cost_usd": 0.001764
+    },
+    {
+      "persona": "support_lead",
+      "estimated_input_tokens": 334,
+      "estimated_output_tokens": 49,
+      "estimated_cost_usd": 0.001737
+    }
+  ]
+}

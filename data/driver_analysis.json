@@ -1,0 +1,152 @@
+[
+  {
+    "anomaly": {
+      "kpi": "revenue",
+      "week": "2026-03-22",
+      "actual_value": 18186.27,
+      "expected_value": 23232.87,
+      "pct_change": -21.7,
+      "z_score": -1.94,
+      "region": "East",
+      "product": "ProductB"
+    },
+    "price_volume_split": {
+      "price_effect_dollars": 2369.83,
+      "volume_effect_dollars": -7878.19,
+      "total_change_dollars": -6259.87,
+      "price_pct_of_drop": -37.9,
+      "volume_pct_of_drop": 125.9
+    },
+    "marketing_signal": null,
+    "complaint_evidence": [],
+    "identified_drivers": [
+      {
+        "driver": "Price change",
+        "evidence_strength": "high (direct calculation)",
+        "detail": "Price changes account for -37.9% of the revenue movement."
+      },
+      {
+        "driver": "Units sold change",
+        "evidence_strength": "high (direct calculation)",
+        "detail": "Units sold changes account for 125.9% of the revenue movement."
+      }
+    ],
+    "evidence_count": 2
+  },
+  {
+    "anomaly": {
+      "kpi": "revenue",
+      "week": "2026-04-12",
+      "actual_value": 30574.18,
+      "expected_value": 35648.31,
+      "pct_change": -14.2,
+      "z_score": -1.86,
+      "region": "West",
+      "product": "ProductA"
+    },
+    "price_volume_split": {
+      "price_effect_dollars": -1491.64,
+      "volume_effect_dollars": -4917.92,
+      "total_change_dollars": -6222.4,
+      "price_pct_of_drop": 24.0,
+      "volume_pct_of_drop": 79.0
+    },
+    "marketing_signal": null,
+    "complaint_evidence": [],
+    "identified_drivers": [
+      {
+        "driver": "Price change",
+        "evidence_strength": "high (direct calculation)",
+        "detail": "Price changes account for 24.0% of the revenue movement."
+      },
+      {
+        "driver": "Units sold change",
+        "evidence_strength": "high (direct calculation)",
+        "detail": "Units sold changes account for 79.0% of the revenue movement."
+      }
+    ],
+    "evidence_count": 2
+  },
+  {
+    "anomaly": {
+      "kpi": "revenue",
+      "week": "2026-04-26",
+      "actual_value": 22127.21,
+      "expected_value": 32283.3,
+      "pct_change": -31.5,
+      "z_score": -1.86,
+      "region": "West",
+      "product": "ProductA"
+    },
+    "price_volume_split": {
+      "price_effect_dollars": -4283.53,
+      "volume_effect_dollars": -9575.78,
+      "total_change_dollars": -12690.53,
+      "price_pct_of_drop": 33.8,
+      "volume_pct_of_drop": 75.5
+    },
+    "marketing_signal": {
+      "pct_change": -42.6,
+      "baseline_spend": 7289.72,
+      "actual_spend": 4180.84
+    },
+    "complaint_evidence": [
+      {
+        "text": "My ProductA order has been stuck in transit for over a week.",
+        "keywords": [
+          "stuck"
+        ]
+      },
+      {
+        "text": "Delivery delayed again, third time this month in the west region.",
+        "keywords": [
+          "delay",
+          "delayed"
+        ]
+      },
+      {
+        "text": "Extremely disappointed with shipping delays, considering switching brands.",
+        "keywords": [
+          "delay",
+          "disappointed"
+        ]
+      },
+      {
+        "text": "Warehouse in the west region seems understaffed, orders piling up.",
+        "keywords": [
+          "understaffed"
+        ]
+      },
+      {
+        "text": "Refund requested, late delivery missed the event I needed it for.",
+        "keywords": [
+          "late",
+          "refund"
+        ]
+      }
+    ],
+    "identified_drivers": [
+      {
+        "driver": "Price change",
+        "evidence_strength": "high (direct calculation)",
+        "detail": "Price changes account for 33.8% of the revenue movement."
+      },
+      {
+        "driver": "Units sold change",
+        "evidence_strength": "high (direct calculation)",
+        "detail": "Units sold changes account for 75.5% of the revenue movement."
+      },
+      {
+        "driver": "Marketing spend change",
+        "evidence_strength": "medium (correlated timing)",
+        "detail": "Marketing spend changed -42.6% the same week."
+      },
+      {
+        "driver": "Customer complaints (fulfillment/logistics)",
+        "evidence_strength": "medium (correlated timing)",
+        "detail": "5 related complaints found in the same window."
+      }
+    ],
+    "evidence_count": 4
+  }
+]

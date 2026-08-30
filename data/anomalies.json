@@ -1,0 +1,173 @@
+{
+  "revenue_anomalies": [
+    {
+      "kpi": "revenue",
+      "week": "2026-03-22",
+      "actual_value": 18186.27,
+      "expected_value": 23232.87,
+      "pct_change": -21.7,
+      "z_score": -1.94,
+      "region": "East",
+      "product": "ProductB"
+    },
+    {
+      "kpi": "revenue",
+      "week": "2026-04-12",
+      "actual_value": 30574.18,
+      "expected_value": 35648.31,
+      "pct_change": -14.2,
+      "z_score": -1.86,
+      "region": "West",
+      "product": "ProductA"
+    },
+    {
+      "kpi": "revenue",
+      "week": "2026-04-26",
+      "actual_value": 22127.21,
+      "expected_value": 32283.3,
+      "pct_change": -31.5,
+      "z_score": -1.86,
+      "region": "West",
+      "product": "ProductA"
+    }
+  ],
+  "units_sold_anomalies": [
+    {
+      "kpi": "units_sold",
+      "week": "2026-03-22",
+      "actual_value": 558,
+      "expected_value": 766.83,
+      "pct_change": -27.2,
+      "z_score": -2.02,
+      "region": "East",
+      "product": "ProductB"
+    },
+    {
+      "kpi": "units_sold",
+      "week": "2026-04-12",
+      "actual_value": 726,
+      "expected_value": 820.5,
+      "pct_change": -11.5,
+      "z_score": -1.84,
+      "region": "West",
+      "product": "ProductA"
+    },
+    {
+      "kpi": "units_sold",
+      "week": "2026-04-26",
+      "actual_value": 583,
+      "expected_value": 756.83,
+      "pct_change": -23.0,
+      "z_score": -1.86,
+      "region": "West",
+      "product": "ProductA"
+    },
+    {
+      "kpi": "units_sold",
+      "week": "2026-06-21",
+      "actual_value": 733,
+      "expected_value": 805.0,
+      "pct_change": -8.9,
+      "z_score": -1.94,
+      "region": "West",
+      "product": "ProductA"
+    }
+  ],
+  "average_selling_price_anomalies": [
+    {
+      "kpi": "average_selling_price",
+      "week": "2026-05-31",
+      "actual_value": 26.81,
+      "expected_value": 29.67,
+      "pct_change": -9.6,
+      "z_score": -1.8,
+      "region": "North",
+      "product": "ProductB"
+    },
+    {
+      "kpi": "average_selling_price",
+      "week": "2026-04-26",
+      "actual_value": 37.95,
+      "expected_value": 42.43,
+      "pct_change": -10.5,
+      "z_score": -1.85,
+      "region": "West",
+      "product": "ProductA"
+    }
+  ],
+  "marketing_spend_anomalies": [
+    {
+      "kpi": "spend",
+      "week": "2026-02-15",
+      "actual_value": 5256.26,
+      "expected_value": 6112.26,
+      "pct_change": -14.0,
+      "z_score": -1.93,
+      "region": "South"
+    },
+    {
+      "kpi": "spend",
+      "week": "2026-04-26",
+      "actual_value": 4180.84,
+      "expected_value": 6734.38,
+      "pct_change": -37.9,
+      "z_score": -1.94,
+      "region": "West"
+    }
+  ],
+  "complaint_volume_anomalies": [
+    {
+      "kpi": "complaint_count",
+      "week": "2026-04-05",
+      "actual_value": 1,
+      "expected_value": 0.17,
+      "pct_change": 500.0,
+      "z_score": 2.04,
+      "region": "East"
+    },
+    {
+      "kpi": "complaint_count",
+      "week": "2026-03-08",
+      "actual_value": 1,
+      "expected_value": 0.17,
+      "pct_change": 500.0,
+      "z_score": 2.04,
+      "region": "South"
+    },
+    {
+      "kpi": "complaint_count",
+      "week": "2026-04-26",
+      "actual_value": 4,
+      "expected_value": 0.67,
+      "pct_change": 500.0,
+      "z_score": 2.04,
+      "region": "West"
+    }
+  ],
+  "sparse_history": [
+    {
+      "region": "East",
+      "product": "ProductC",
+      "weeks_of_data": 4,
+      "note": "Not enough history to reliably judge normal vs abnormal yet."
+    },
+    {
+      "region": "North",
+      "product": "ProductC",
+      "weeks_of_data": 4,
+      "note": "Not enough history to reliably judge normal vs abnormal yet."
+    },
+    {
+      "region": "South",
+      "product": "ProductC",
+      "weeks_of_data": 4,
+      "note": "Not enough history to reliably judge normal vs abnormal yet."
+    },
+    {
+      "region": "West",
+      "product": "ProductC",
+      "weeks_of_data": 4,
+      "note": "Not enough history to reliably judge normal vs abnormal yet."
+    }
+  ]
+}
