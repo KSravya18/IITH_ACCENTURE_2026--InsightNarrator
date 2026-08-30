@@ -1,3 +1,4 @@
+
 # InsightNarrator
 
 **An AI-powered KPI intelligence-to-action engine.**
@@ -41,6 +42,28 @@ be treated as the source of quantitative truth."
 | 8. Action recommendations | Maps each driver to a concrete business action | Lookup table (no AI) |
 | 9. Feedback loop | Lets an analyst's correction improve future detection | Logged + keyword-list update (no AI) |
 | 10. Telemetry | Measures latency, token usage, and estimated cost | Instrumentation (no AI) |
+
+## Demo video walkthrough
+
+The demo video is silent — every step it shows is explained here, in the order it appears, so nothing depends on narration.
+
+1. **Opening screen** — the video opens on `insight_narrator_live.html`. Clicking **"Use Sample Data"** runs the entire pipeline live, in the browser, on the embedded sample dataset. Nothing here is pre-computed or replayed; the same JavaScript logic mirrors the Python pipeline exactly.
+
+2. **Evidence Reconciliation table** — shows sales (weekly), marketing spend (weekly), and customer complaints (irregular timestamps) merged onto one shared weekly calendar per region. This is the "reconcile heterogeneous data sources" requirement, made visible rather than implicit.
+
+3. **Anomaly Detection Across 5 KPIs** — five KPI cards (Revenue, Units Sold, Avg. Price, Marketing Spend, Complaint Volume) each show how many anomalies were statistically flagged, plus a sixth card for products with too little history to judge yet (sparse-history case).
+
+4. **Investigation Findings (clickable case cards)** — each card is a flagged revenue anomaly with a price/volume breakdown and a confidence stamp: **CONFIRMED** (green, multiple independent evidence sources agree) or **UNCONFIRMED** (red, no external evidence — the system explicitly abstains rather than guessing a cause). Clicking a card selects it for the sections below.
+
+5. **Clearance Levels** — the same selected finding shown through three personas (Executive / Regional Manager / Support Lead), switched via tabs. Fields the current persona isn't cleared to see appear as black **"RESTRICTED"** bars rather than being silently omitted, so it's visible *what* is being withheld. The Regional Manager view includes a region selector — changing it to a region that doesn't match the case triggers a live **"ACCESS DENIED"** stamp, demonstrating the role-based security requirement on demand rather than as a scripted example.
+
+6. **Field Report Narratives** — the plain-language explanation for the selected case, written three different ways for the three personas. This is the only stage that would use an LLM in production; here it runs on the same rule-based template the Python backend falls back to without an API key, so the demo works with no credentials required. The LLM's role is strictly to phrase already-verified facts — it never introduces a new number, driver, or confidence level.
+
+7. **Recommended Actions** — each confirmed driver maps to a specific action with an owner, so the output is something a business user can actually act on rather than just a diagnosis.
+
+8. **Field Notes — Feedback Loop (interactive)** — this section is filled in live during the video: a correction is typed in (simulating an analyst who found the real cause of an unresolved case) along with new keywords, and submitting it immediately updates the system's detection vocabulary and re-analyzes the open cases — demonstrating the "learns from feedback" requirement as a real interaction rather than a description.
+
+9. **Case Metrics** — latency and estimated LLM cost, measured live from that actual run in the browser, not pre-computed. This is the evidence behind the claim that the system is inexpensive and fast to run at scale, since the vast majority of the time is spent on deterministic statistics rather than AI calls.
 
 ## Project structure
 
